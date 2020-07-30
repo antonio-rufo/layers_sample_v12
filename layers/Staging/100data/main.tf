@@ -10,33 +10,6 @@ provider "aws" {
   allowed_account_ids = ["${var.aws_account_id}"]
 }
 
-terraform {
-  backend "s3" {
-    bucket  = "build-state-bucket-hkex-layers-demo"
-    key     = "terraform.100data.tfstate"
-    region  = "ap-southeast-2"
-    encrypt = "true"
-  }
-}
-
-data "terraform_remote_state" "main_state" {
-  backend = "local"
-
-  config = {
-    path = "../../_main/terraform.tfstate"
-  }
-}
-
-data "terraform_remote_state" "_000base" {
-  backend = "s3"
-
-  config = {
-    key    = "terraform.000base.tfstate"
-    bucket = "build-state-bucket-hkex-layers-demo"
-    region = "ap-southeast-2"
-  }
-}
-
 locals {
   tags = {
     Environment     = "${var.environment}"

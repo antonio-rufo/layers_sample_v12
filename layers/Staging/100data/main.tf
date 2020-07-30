@@ -21,10 +21,15 @@ locals {
 
 ### S3 Bucket ###
 
+resource "random_integer" "suffix" {
+  min     = 1000
+  max     = 9999
+}
+
 module "s3" {
   source = "../../../modules/aws-terraform-s3/"
 
-  name          = var.s3_bucketname
+  name          = "${var.s3_bucketname}-${random_integer.suffix.result}"
   bucket_acl    = var.s3_bucket_acl
   versioning    = var.s3_bucket_versioning
   environment   = var.environment

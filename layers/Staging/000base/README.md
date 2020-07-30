@@ -1,4 +1,27 @@
-# 000base
+# 000base Layer
+
+# Initialisation
+
+This layer will create your VPC Base Network with 2 Private and 2 Public Subnets to be used for demo.
+
+### Create
+
+Update the `terraform.tfvars` file to include your required AWS access key, AWS secret access key, AWS account ID, environment and region.
+
+- update terraform.tfvars with your AWS access key, AWS secret access key, AWS account ID, environment and region
+
+```bash
+$ terraform init
+$ terraform apply -auto-approve
+```
+
+### Destroy
+
+```bash
+$ terraform destroy
+```
+
+When prompted, check the plan and then respond in the affirmative.
 
 ## Inputs
 

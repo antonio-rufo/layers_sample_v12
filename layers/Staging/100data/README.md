@@ -1,4 +1,28 @@
-# 100data
+# 100data Layer
+
+# Initialisation
+
+This layer will create a demo S3 bucket.
+
+### Create
+
+Update the `terraform.tfvars` file to include your required AWS access key, AWS secret access key, AWS account ID, environment and region.
+
+- update terraform.tfvars with your AWS access key, AWS secret access key, AWS account ID, environment and region
+
+```bash
+$ terraform init
+$ terraform apply -auto-approve
+```
+
+### Destroy
+
+```bash
+$ terraform destroy
+```
+
+When prompted, check the plan and then respond in the affirmative.
+
 
 ## Inputs
 
